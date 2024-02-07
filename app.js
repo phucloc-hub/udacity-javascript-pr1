@@ -144,6 +144,7 @@
         // Check all the fields is not empty
         if(name && feet && inches && weight && diet){
             dinos.forEach(function (dino) {
+                console.log(dino.species)
                 tilesArray.push(new Dino(dino.species,dino.weight,dino.height,dino.diet,dino.where,dino.when,dino.fact));
             });
             // Human should be in the centre square
@@ -229,6 +230,7 @@
         document.getElementById('grid').innerHTML = '';
         document.getElementById('repeat-btn').style.display = 'none';
         document.querySelector('form').style.display = 'block';
+        tilesArray = []
     }
 
     document.getElementById("btn").addEventListener("click", getHumanDataFromUI)
