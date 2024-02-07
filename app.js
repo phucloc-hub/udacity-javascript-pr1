@@ -143,7 +143,7 @@
         // Check all the fields is not empty
         if(name && feet && inches && weight && diet){
             dinos.forEach(function (dino) {
-                tilesArray.push(new Dino(dino));
+                tilesArray.push(new Dino(dino.species,dino.weight,dino.height,dino.diet,dino.where,dino.when,dino.fact));
             });
             // Human should be in the centre square
             tilesArray.splice(4,0, new Human(name,feet,inches,weight,diet))
@@ -193,7 +193,7 @@
         div.className = 'grid-item'
         div.innerHTML = 
         `<h3>${dino.species}</h3>
-        <img src="images/${(dino.species)}.png" alt="${dino.species}">
+        <img src="images/${(dino.species.toLowerCase())}.png" alt="${dino.species}">
         <p>${getFact(dino, tilesArray[4])}</p>`
         return div
     }
