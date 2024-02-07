@@ -189,6 +189,7 @@
     function createNewDivForDino(dino){
         const div = document.createElement('div')
         console.log(dino.species)
+        console.log(dino.species.toLowerCase())
         div.className = 'grid-item'
         div.innerHTML = 
         `<h3>${dino.species}</h3>
