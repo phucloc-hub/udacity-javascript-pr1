@@ -135,7 +135,6 @@
 
     // Use IIFE to get human data from form
     function getHumanDataFromUI(e) {
-        e.preventDefault()
         const name = document.getElementById("name").value
         const feet = document.getElementById("feet").value
         const inches = document.getElementById("inches").value
@@ -220,18 +219,9 @@
             }
         }
         )
-        // Show the 'Go Again' button
-        document.getElementById('repeat-btn').style.display = 'block';
-    }
-
-    function reset() {
-        document.getElementById('grid').innerHTML = '';
-        document.getElementById('repeat-btn').style.display = 'none';
-        document.querySelector('form').style.display = 'block';
     }
 
     document.getElementById("btn").addEventListener("click", getHumanDataFromUI)
-    document.getElementById("repeat-btn").addEventListener("click", reset)
 
     // Create Dino Compare Method 1
     // NOTE: Weight in JSON file is in lbs, height in inches. 
