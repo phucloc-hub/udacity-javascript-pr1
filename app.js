@@ -188,6 +188,7 @@
 
     function createNewDivForDino(dino){
         const div = document.createElement('div')
+        console.log(dino)
         console.log(dino.species)
         console.log(typeof dino.species === 'string')
         div.className = 'grid-item'
