@@ -134,7 +134,8 @@
     
 
     // Use IIFE to get human data from form
-    function getHumanDataFromUI() {
+    function getHumanDataFromUI(e) {
+        e.preventDefault()
         const name = document.getElementById("name").value
         const feet = document.getElementById("feet").value
         const inches = document.getElementById("inches").value
@@ -208,6 +209,7 @@
     }
 
     function renderUI(){
+        document.querySelector('form').style.display = 'none';
         let grid = document.getElementById("grid");
         let count = 0;
         tilesArray.forEach(element => {
