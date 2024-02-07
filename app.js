@@ -214,6 +214,7 @@
         let grid = document.getElementById("grid");
         let count = 0;
         tilesArray.forEach(element => {
+            console.log(count)
             if(count == 4) {
                 grid.appendChild(createNewDivForHuman(element))
             } else {
