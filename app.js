@@ -193,7 +193,7 @@
         div.className = 'grid-item'
         div.innerHTML = 
         `<h3>${dino.species}</h3>
-        <img src="images/${(dino.species.toLowerCase())}.png" alt="${dino.species}">
+        <img src="images/${(dino.species)}.png" alt="${dino.species}">
         <p>${getFact(dino, tilesArray[4])}</p>`
         return div
     }
