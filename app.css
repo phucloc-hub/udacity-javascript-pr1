@@ -14,6 +14,10 @@ h1 {
     font-weight: 400;
 }
 
+.repeat-btn {
+    display: none;
+}
+
 h2,
 h3 {
     font-family: 'Oswald', sans-serif;

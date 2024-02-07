@@ -212,15 +212,12 @@
     function renderUI(){
         document.querySelector('form').style.display = 'none';
         let grid = document.getElementById("grid");
-        let count = 0;
         tilesArray.forEach(element => {
-            console.log(count)
-            if(count == 4) {
+            if(element.species == undefined) {
                 grid.appendChild(createNewDivForHuman(element))
             } else {
                 grid.appendChild(createNewDivForDino(element))
             }
-            count++
         }
         )
         // Show the 'Go Again' button
@@ -231,7 +228,6 @@
         document.getElementById('grid').innerHTML = '';
         document.getElementById('repeat-btn').style.display = 'none';
         document.querySelector('form').style.display = 'block';
-        tilesArray = []
     }
 
     document.getElementById("btn").addEventListener("click", getHumanDataFromUI)
