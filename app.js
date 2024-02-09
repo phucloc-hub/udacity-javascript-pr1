@@ -131,19 +131,30 @@
     ]
 
     const tilesArray = []
-    
+
+    function renderUI(){
+        document.querySelector('form').style.display = 'none';
+        let grid = document.getElementById('grid');
+        tilesArray.forEach(element => {
+            if(element.species == undefined) {
+                grid.appendChild(createNewDivForHuman(element))
+            } else {
+                grid.appendChild(createNewDivForDino(element))
+            }
+        }
+        )
+    }
 
     // Use IIFE to get human data from form
     function getHumanDataFromUI(e) {
-        const name = document.getElementById("name").value
-        const feet = document.getElementById("feet").value
-        const inches = document.getElementById("inches").value
-        const weight = document.getElementById("weight").value
-        const diet = document.getElementById("diet").value
+        const name = document.getElementById('name').value
+        const feet = document.getElementById('feet').value
+        const inches = document.getElementById('inches').value
+        const weight = document.getElementById('weight').value
+        const diet = document.getElementById('diet').value
         // Check all the fields is not empty
         if(name && feet && inches && weight && diet){
             dinos.forEach(function (dino) {
-                console.log(dino.species)
                 tilesArray.push(new Dino(dino.species,dino.weight,dino.height,dino.diet,dino.where,dino.when,dino.fact));
             });
             // Human should be in the centre square
@@ -152,7 +163,7 @@
             renderUI()
         }else {
             // Warning Alert
-           alert("All fields are required. Please input and try againt.") 
+           alert('All fields are required. Please input and try againt.') 
         }
     }
 
@@ -170,7 +181,7 @@
                 fact = dino.compareDiet(human.diet)
                 break
                 case 2: 
-                fact = dino.compareHeight(human.height)
+                fact = dino.compareHeight(human.feet)
                 break
                 case 3: 
                 fact = dino.compareWeight(human.weight)
@@ -189,12 +200,10 @@
 
     function createNewDivForDino(dino){
         const div = document.createElement('div')
-        console.log(dino)
-        console.log(typeof dino.species === 'string')
         div.className = 'grid-item'
         div.innerHTML = 
         `<h3>${dino.species}</h3>
-        <img src="images/${(dino.species.toLowerCase())}.png" alt="${dino.species}">
+        <img src='images/${(dino.species.toLowerCase())}.png' alt='${dino.species}'>
         <p>${getFact(dino, tilesArray[4])}</p>`
         return div
     }
@@ -204,42 +213,8 @@
         div.className = 'grid-item'
         div.innerHTML = 
         `<h3>${human.name}</h3>
-        <img src="images/human.png">`
+        <img src='images/human.png'>`
         return div
     }
 
-    function renderUI(){
-        document.querySelector('form').style.display = 'none';
-        let grid = document.getElementById("grid");
-        tilesArray.forEach(element => {
-            if(element.species == undefined) {
-                grid.appendChild(createNewDivForHuman(element))
-            } else {
-                grid.appendChild(createNewDivForDino(element))
-            }
-        }
-        )
-    }
-
-    document.getElementById("btn").addEventListener("click", getHumanDataFromUI)
-
-    // Create Dino Compare Method 1
-    // NOTE: Weight in JSON file is in lbs, height in inches. 
-
-    
-    // Create Dino Compare Method 2
-    // NOTE: Weight in JSON file is in lbs, height in inches.
-
-    
-    // Create Dino Compare Method 3
-    // NOTE: Weight in JSON file is in lbs, height in inches.
-
-
-    // Generate Tiles for each Dino in Array
-  
-        // Add tiles to DOM
-
-    // Remove form from screen
-
-
-// On button click, prepare and display infographic
+    document.getElementById('btn').addEventListener('click', getHumanDataFromUI)
